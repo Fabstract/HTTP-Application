@@ -1,0 +1,45 @@
+{
+  "name": "fabstract/framework",
+  "type": "library",
+  "description": "HTTP Framework for PHP",
+  "keywords": [
+    "php",
+    "http",
+    "http application",
+    "application"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ahmet Turk",
+      "email": "ahmetturk93@gmail.com",
+      "homepage": "https://github.com/fabstract"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Fabs\\Component\\Http\\": "src"
+    }
+  },
+  "require": {
+    "php": "^7.0",
+    "fabstract/assert": "dev-master",
+    "fabstract/router": "dev-master",
+    "fabstract/di": "dev-master",
+    "symfony/http-foundation": "^3.4"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/Assert.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/Router.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/Dependency-Injection.git"
+    }
+  ]
+}
