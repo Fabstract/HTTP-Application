@@ -18,12 +18,15 @@
   ],
   "autoload": {
     "psr-4": {
-      "Fabs\\Component\\Http\\": "src"
+      "Fabs\\Component\\Http\\": "src",
+      "WTF\\": "public"
     }
   },
   "require": {
     "php": "^7.0",
     "fabstract/assert": "dev-master",
+    "fabstract/event": "dev-master",
+    "fabstract/serializer": "dev-master",
     "fabstract/router": "dev-master",
     "fabstract/di": "dev-master",
     "symfony/http-foundation": "^3.4"
@@ -32,6 +35,14 @@
     {
       "type": "vcs",
       "url": "git@github.com:Fabstract/Assert.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/Serializer.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/Event.git"
     },
     {
       "type": "vcs",
