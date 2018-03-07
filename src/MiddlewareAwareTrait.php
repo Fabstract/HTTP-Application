@@ -32,7 +32,7 @@ trait MiddlewareAwareTrait
      */
     public function addMiddleware($middleware_class_name, ...$parameters)
     {
-        Assert::isClassExists($middleware_class_name);
+        Assert::isTypeExists($middleware_class_name);
 
         $middleware_definition = new MiddlewareDefinition();
         $middleware_definition->setClassName($middleware_class_name)
