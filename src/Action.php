@@ -31,7 +31,7 @@ class Action extends Injectable implements MiddlewareAwareInterface
     {
         $callable = $this->callable;
         if (is_string($this->callable)) {
-            Assert::isMethodExist($resource, $this->callable, 'callable');
+            Assert::isMethodExists($resource, $this->callable);
             $callable = [$resource, $this->callable];
         }
 
