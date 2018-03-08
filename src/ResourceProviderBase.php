@@ -2,7 +2,7 @@
 
 namespace Fabs\Component\Http;
 
-abstract class ResourceProviderBase extends DefinitionAwareInjectable implements ResourceProviderInterface
+abstract class ResourceProviderBase extends Injectable implements ResourceProviderInterface
 {
 
 }

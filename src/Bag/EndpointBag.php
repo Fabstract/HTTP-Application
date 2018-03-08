@@ -27,7 +27,7 @@ class EndpointBag
      * @param string $route
      * @return Endpoint
      */
-    public function add($route)
+    public function create($route)
     {
         return $this->addEndpoint(
             Endpoint::create($route)

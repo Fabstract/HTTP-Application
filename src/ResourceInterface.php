@@ -2,10 +2,9 @@
 
 namespace Fabs\Component\Http;
 
-use Fabs\Component\DependencyInjection\DefinitionAwareInterface;
 use Fabs\Component\Http\Bag\EndpointBag;
 
-interface ResourceInterface extends DefinitionAwareInterface
+interface ResourceInterface
 {
     /**
      * @param EndpointBag $endpoint_bag

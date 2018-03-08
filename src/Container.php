@@ -8,7 +8,6 @@ use Fabs\Component\Http\Definition\ServiceDefinition\RequestDefinition;
 use Fabs\Component\Http\Definition\ServiceDefinition\ResponseDefinition;
 use Fabs\Component\Http\Definition\ServiceDefinition\RouterDefinition;
 use Fabs\Component\Router\Router;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class Container extends \Fabs\Component\DependencyInjection\Container

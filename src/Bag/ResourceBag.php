@@ -30,7 +30,7 @@ class ResourceBag extends Injectable
      * @param string $class_name
      * @return ResourceDefinition
      */
-    public function add($route, $class_name)
+    public function create($route, $class_name)
     {
         return $this->addDefinition(
             ResourceDefinition::create($route)->setClassName($class_name)
