@@ -94,7 +94,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $resource->configureEndpointBag($endpoint_bag);
         /** @var Endpoint[] $endpoint_list */
         $endpoint_list = $endpoint_bag->getAll();
-        $endpoint_match_result = $this->getMatchingRouteAwareFromList($request_uri, $endpoint_list);
+        $endpoint_match_result = $this->getMatchingRouteAwareFromList($request_uri, $endpoint_list, true);
         /** @var Endpoint $endpoint */
         $endpoint = $endpoint_match_result->getRouteAware();
         $action_parameters = $endpoint_match_result->getParameters();
@@ -166,12 +166,13 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     /**
      * @param string $uri
      * @param RouteAwareInterface[] $route_aware_list
+     * @param bool $is_exact
      * @return RouterMatchResult
      * @throws NotFoundException
      */
-    private function getMatchingRouteAwareFromList($uri, $route_aware_list)
+    private function getMatchingRouteAwareFromList($uri, $route_aware_list, $is_exact = false)
     {
-        $match_result = $this->router->match($uri, $route_aware_list);
+        $match_result = $this->router->match($uri, $route_aware_list, $is_exact);
         if ($match_result === null) {
             throw new NotFoundException($uri);
         }
