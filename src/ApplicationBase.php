@@ -8,6 +8,7 @@ use Fabs\Component\Http\Bag\ModuleBag;
 use Fabs\Component\Http\Bag\ResourceBag;
 use Fabs\Component\Http\Bag\ServiceBag;
 use Fabs\Component\Http\Constant\Services;
+use Fabs\Component\Http\Definition\ExceptionHandlerDefinition;
 use Fabs\Component\Http\Definition\ModuleDefinition;
 use Fabs\Component\Http\Definition\ResourceDefinition;
 use Fabs\Component\Http\Definition\ServiceDefinition\RequestDefinition;
@@ -20,8 +21,18 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
 {
     use MiddlewareAwareTrait;
 
+    /** @var ExceptionHandlerDefinition[] */
+    private $exception_handler_definition_list = [];
+    /** @var int */
+    private $current_exception_depth = 1;
+
+    /** @var int */
+    const DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH = 5; /* should use "private const" when switching to PHP 7.1 */
+
     public final function __construct()
     {
+        $this->setupExceptionHandling();
+
         $this->setContainer(new Container($this->getRequestDefinition()));
 
         $application_definition = new ServiceDefinition();
@@ -32,6 +43,78 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $this->getContainer()->add($application_definition);
 
         $this->onConstruct();
+    }
+
+    protected function setupExceptionHandling()
+    {
+        set_error_handler(function ($error_no, $error_message, $error_file, $error_line) {
+            throw new \ErrorException($error_message, 0, $error_no, $error_file, $error_line);
+        });
+
+        set_exception_handler([$this, 'handleException']);
+    }
+
+    /**
+     * @param string $exception_type
+     * @param string $handler_class
+     * @return $this
+     */
+    public function addExceptionHandler($exception_type, $handler_class)
+    {
+        $definition = new ExceptionHandlerDefinition($exception_type);
+        $definition->setClassName($handler_class);
+        return $this->addExceptionHandlerDefinition($definition);
+    }
+
+    /**
+     * @param ExceptionHandlerDefinition $exception_handler_definition
+     * @return $this
+     */
+    public function addExceptionHandlerDefinition($exception_handler_definition)
+    {
+        Assert::isType(
+            $exception_handler_definition,
+            ExceptionHandlerDefinition::class,
+            'exception handler definition'
+        );
+
+        $this->exception_handler_definition_list[] = $exception_handler_definition;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    protected function getMaximumAllowedExceptionDepth()
+    {
+        return self::DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH;
+    }
+
+    /**
+     * @param \Exception $exception
+     * @throws \Exception
+     */
+    public function handleException($exception)
+    {
+        try {
+            foreach ($this->exception_handler_definition_list as $definition) {
+                $handling_type = $definition->getExceptionType();
+                if ($exception instanceof $handling_type) {
+                    $handler = $definition->getInstance();
+                    $handler->handle($exception);
+                    return;
+                }
+            }
+        } catch (\Exception $new_exception) {
+            if ($this->current_exception_depth < static::getMaximumAllowedExceptionDepth()) {
+                $this->current_exception_depth++;
+                $this->handleException($new_exception);
+                return;
+            }
+            $exception = $new_exception;
+        }
+
+        throw $exception;
     }
 
     protected function onConstruct()
