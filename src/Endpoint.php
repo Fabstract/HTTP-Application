@@ -102,6 +102,8 @@ class Endpoint implements RouteAwareInterface
         if (is_string($action)) {
             Assert::isNotNullOrWhiteSpace($action, 'action');
             $action = Action::create($action);
+        } elseif (is_callable($action)) {
+            $action = Action::create($action);
         }
 
         Assert::isType($action, Action::class, 'action');
