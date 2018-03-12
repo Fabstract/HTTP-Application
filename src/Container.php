@@ -7,7 +7,9 @@ use Fabs\Component\Http\Constant\Services;
 use Fabs\Component\Http\Definition\ServiceDefinition\RequestDefinition;
 use Fabs\Component\Http\Definition\ServiceDefinition\ResponseDefinition;
 use Fabs\Component\Http\Definition\ServiceDefinition\RouterDefinition;
+use Fabs\Component\Http\Definition\ServiceDefinition\SerializerDefinition;
 use Fabs\Component\Router\Router;
+use Fabs\Component\Serializer\JSONSerializer;
 use Symfony\Component\HttpFoundation\Response;
 
 class Container extends \Fabs\Component\DependencyInjection\Container
@@ -35,6 +37,11 @@ class Container extends \Fabs\Component\DependencyInjection\Container
             ResponseDefinition::class
         );
 
+        $this->addServiceDefinitionConstraint(
+            Services::SERIALIZER,
+            SerializerDefinition::class
+        );
+
         foreach ($this->getServices() as $service) {
             $this->add($service);
         }
@@ -52,6 +59,7 @@ class Container extends \Fabs\Component\DependencyInjection\Container
     {
         yield $this->getRouterDefinition();
         yield $this->getResponseDefinition();
+        yield $this->getSerializerDefinition();
     }
 
     protected function getRouterDefinition()
@@ -70,5 +78,13 @@ class Container extends \Fabs\Component\DependencyInjection\Container
         $response_definition = new ResponseDefinition();
         $response_definition->setClassName(Response::class);
         return $response_definition;
+    }
+
+    protected function getSerializerDefinition()
+    {
+        $serializer_definition = new SerializerDefinition();
+        // todo using JSONSerializer for now, it really shouldn't be JSONSerializer
+        $serializer_definition->setClassName(JSONSerializer::class);
+        return $serializer_definition;
     }
 }
