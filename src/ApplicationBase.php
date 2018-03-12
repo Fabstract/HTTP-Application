@@ -27,7 +27,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     private $current_exception_depth = 1;
 
     /** @var int */
-    const DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH = 5; /* should use "private const" when switching to PHP 7.1 */
+    const DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH = 15; /* should use "private const" when switching to PHP 7.1 */
 
     public final function __construct()
     {
