@@ -258,7 +258,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     {
         $match_result = $this->router->match($uri, $route_aware_list, $is_exact);
         if ($match_result === null) {
-            throw new NotFoundException($uri);
+            throw new NotFoundException();
         }
 
         return $match_result;
