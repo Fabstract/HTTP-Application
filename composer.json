@@ -29,6 +29,7 @@
     "fabstract/serializer": "dev-master",
     "fabstract/router": "dev-master",
     "fabstract/di": "dev-master",
+    "fabstract/lazy": "dev-master",
     "symfony/http-foundation": "^3.4"
   },
   "repositories": [
@@ -51,6 +52,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:Fabstract/Dependency-Injection.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/Lazy.git"
     }
   ]
 }
