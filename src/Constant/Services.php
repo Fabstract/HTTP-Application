@@ -8,4 +8,5 @@ class Services
     const REQUEST = 'request';
     const APPLICATION = 'application';
     const RESPONSE = 'response';
+    const SERIALIZER = 'serializer';
 }
