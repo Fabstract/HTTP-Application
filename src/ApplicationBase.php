@@ -78,6 +78,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
             'exception handler definition'
         );
 
+        $exception_handler_definition->setContainer($this->getContainer());
         $this->exception_handler_definition_list[] = $exception_handler_definition;
         return $this;
     }
