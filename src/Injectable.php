@@ -4,8 +4,6 @@ namespace Fabs\Component\Http;
 
 use Fabs\Component\Router\Router;
 use Fabs\Component\Serializer\SerializerInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class Injectable
