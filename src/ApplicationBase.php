@@ -175,6 +175,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
 
         // Find matching endpoint
         $endpoint_bag = new EndpointBag();
+        $endpoint_bag->setContainer($this->getContainer());
         $resource->configureEndpointBag($endpoint_bag);
         /** @var Endpoint[] $endpoint_list */
         $endpoint_list = $endpoint_bag->getAll();
@@ -230,7 +231,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $output = $matched_action->execute($resource, $action_parameters);
 
         // Set response
-        $this->response->setContent($output);
+        $this->response->setReturnedValue($output);
 
         // Execute middleware after
         $matched_action->executeAfter();
