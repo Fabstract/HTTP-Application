@@ -4,7 +4,7 @@ namespace Fabs\Component\Http\Definition\ServiceDefinition;
 
 use Fabs\Component\DependencyInjection\ServiceDefinition;
 use Fabs\Component\Http\Constant\Services;
-use Symfony\Component\HttpFoundation\Response;
+use Fabs\Component\Http\Response;
 
 final class ResponseDefinition extends ServiceDefinition
 {
