@@ -3,7 +3,6 @@
 namespace Fabs\Component\Http;
 
 use Fabs\Component\Http\Definition\ServiceDefinition\RequestDefinition;
-use Symfony\Component\HttpFoundation\Request;
 
 abstract class HttpApplicationBase extends ApplicationBase
 {
