@@ -5,7 +5,7 @@ namespace Fabs\Component\Http;
 use Fabs\Component\Http\Constant\HttpMethods;
 use Fabs\Component\Router\RouteAwareInterface;
 
-class Endpoint implements RouteAwareInterface
+class Endpoint extends Injectable implements RouteAwareInterface
 {
     /** @var string */
     private $route = null;
@@ -101,9 +101,9 @@ class Endpoint implements RouteAwareInterface
     {
         if (is_string($action)) {
             Assert::isNotNullOrWhiteSpace($action, 'action');
-            $action = Action::create($action);
+            $action = Action::create($this, $action);
         } elseif (is_callable($action)) {
-            $action = Action::create($action);
+            $action = Action::create($this, $action);
         }
 
         Assert::isType($action, Action::class, 'action');
