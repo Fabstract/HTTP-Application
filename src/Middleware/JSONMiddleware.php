@@ -8,7 +8,7 @@ use Fabs\Component\Http\Exception\StatusCodeException\UnsupportedMediaTypeExcept
 use Fabs\Component\Http\MiddlewareBase;
 use Fabs\Component\Serializer\JSONSerializer;
 
-class JSONContentMiddleware extends MiddlewareBase
+class JSONMiddleware extends MiddlewareBase
 {
     public function before()
     {
