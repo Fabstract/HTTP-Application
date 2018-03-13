@@ -4,8 +4,9 @@ namespace Fabs\Component\Http\Bag;
 
 use Fabs\Component\Http\Assert;
 use Fabs\Component\Http\Endpoint;
+use Fabs\Component\Http\Injectable;
 
-class EndpointBag
+class EndpointBag extends Injectable
 {
     /**
      * @var Endpoint[]
@@ -19,6 +20,7 @@ class EndpointBag
     public function addEndpoint($endpoint)
     {
         Assert::isType($endpoint, Endpoint::class, 'endpoint');
+        $endpoint->setContainer($this->getContainer());
         $this->endpoint_list[] = $endpoint;
         return $endpoint;
     }
