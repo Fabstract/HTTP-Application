@@ -4,7 +4,7 @@ namespace Fabs\Component\Http\Definition\ServiceDefinition;
 
 use Fabs\Component\DependencyInjection\ServiceDefinition;
 use Fabs\Component\Http\Constant\Services;
-use Symfony\Component\HttpFoundation\Request;
+use Fabs\Component\Http\Request;
 
 final class RequestDefinition extends ServiceDefinition
 {
