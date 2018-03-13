@@ -5,21 +5,23 @@ namespace Fabs\Component\Http;
 class Request extends \Symfony\Component\HttpFoundation\Request
 {
     /** @var mixed */
-    private $decoded_content = null;
+    private $body = null;
+
+    /**
+     * @param mixed $body
+     * @return Request
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+        return $this;
+    }
 
     /**
      * @return mixed
      */
-    public function getDecodedContent()
+    public function getBody()
     {
-        return $this->decoded_content;
-    }
-
-    /**
-     * @param mixed $decoded_content
-     */
-    public function setDecodedContent($decoded_content)
-    {
-        $this->decoded_content = $decoded_content;
+        return $this->body;
     }
 }
