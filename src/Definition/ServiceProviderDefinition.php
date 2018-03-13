@@ -3,12 +3,12 @@
 namespace Fabs\Component\Http\Definition;
 
 use Fabs\Component\DependencyInjection\Definition;
-use Fabs\Component\Http\ServiceProvider;
+use Fabs\Component\Http\ServiceProviderInterface;
 
 class ServiceProviderDefinition extends Definition
 {
     protected final function getAssertType()
     {
-        return ServiceProvider::class;
+        return ServiceProviderInterface::class;
     }
 }
