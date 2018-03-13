@@ -10,7 +10,6 @@ use Fabs\Component\Http\Definition\ServiceDefinition\RouterDefinition;
 use Fabs\Component\Http\Definition\ServiceDefinition\SerializerDefinition;
 use Fabs\Component\Router\Router;
 use Fabs\Component\Serializer\JSONSerializer;
-use Symfony\Component\HttpFoundation\Response;
 
 class Container extends \Fabs\Component\DependencyInjection\Container
 {
