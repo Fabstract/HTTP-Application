@@ -2,6 +2,8 @@
 
 namespace Fabs\Component\Http;
 
+use Fabs\Component\DependencyInjection\ContainerAwareInterface;
+
 class Action extends Injectable implements MiddlewareAwareInterface
 {
     use MiddlewareAwareTrait;
@@ -13,12 +15,15 @@ class Action extends Injectable implements MiddlewareAwareInterface
 
     /**
      * ActionDefinition constructor.
+     * @param ContainerAwareInterface $container_aware
      * @param callable|string $callable
      */
-    private function __construct($callable)
+    private function __construct($container_aware, $callable)
     {
-        Assert::isNotNull($callable); // todo string or callable check
+        Assert::isType($container_aware, ContainerAwareInterface::class, 'container_aware');
+        Assert::isNotNull($callable, 'callable'); // todo string or callable check
 
+        $this->setContainer($container_aware->getContainer());
         $this->callable = $callable;
     }
 
@@ -39,11 +44,12 @@ class Action extends Injectable implements MiddlewareAwareInterface
     }
 
     /**
+     * @param ContainerAwareInterface $container_aware
      * @param callable|string $callable
      * @return $this
      */
-    public static function create($callable)
+    public static function create($container_aware, $callable)
     {
-        return new static($callable);
+        return new static($container_aware, $callable);
     }
 }
