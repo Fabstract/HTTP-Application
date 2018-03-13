@@ -11,4 +11,12 @@ class HttpMethods
     const DELETE = 'DELETE';
     const PATCH = 'PATCH';
     const OPTIONS = 'OPTIONS';
+
+
+    const METHODS_WITH_BODY =
+        [
+            HttpMethods::POST,
+            HttpMethods::PUT,
+            HttpMethods::PATCH
+        ];
 }
