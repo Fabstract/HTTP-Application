@@ -22,6 +22,8 @@ abstract class HttpApplicationBase extends ApplicationBase
     public function run()
     {
         $this->handle();
-        $this->response->send();
+        $this->response
+            ->prepare($this->request)
+            ->send();
     }
 }
