@@ -2,7 +2,7 @@
 
 namespace Fabs\Component\Http;
 
-use Fabs\Component\DependencyInjection\ContainerAware;
+use Fabs\Component\DependencyInjection\Injectable;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * @property Request request
  */
-abstract class MiddlewareBase extends ContainerAware implements MiddlewareInterface
+abstract class MiddlewareBase extends Injectable implements MiddlewareInterface
 {
     public function initialize()
     {
