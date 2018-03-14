@@ -18,8 +18,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Fabs\\Component\\Http\\": "src",
-      "WTF\\": "public"
+      "Fabs\\Component\\Http\\": "src"
     }
   },
   "require": {
@@ -30,6 +29,8 @@
     "fabstract/router": "dev-master",
     "fabstract/di": "dev-master",
     "fabstract/lazy": "dev-master",
+    "fabstract/validator": "dev-master",
+    "fabs/linq": "dev-develop",
     "symfony/http-foundation": "^3.4"
   },
   "repositories": [
@@ -56,6 +57,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:Fabstract/Lazy.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/Validator.git"
     }
   ]
 }
