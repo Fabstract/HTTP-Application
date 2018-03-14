@@ -19,11 +19,13 @@ class NormalizationMiddleware extends MiddlewareBase
 
     public function before()
     {
-        $normalized = $this->serializer->getNormalizer()->denormalize(
-            $this->request->getBody(),
-            $this->type
-        );
+        if (isset($this->serializer)) {
+            $normalized = $this->serializer->getNormalizer()->denormalize(
+                $this->request->getBody(),
+                $this->type
+            );
 
-        $this->request->setBody($normalized);
+            $this->request->setBody($normalized);
+        }
     }
 }
