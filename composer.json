@@ -29,8 +29,6 @@
     "fabstract/router": "dev-master",
     "fabstract/di": "dev-master",
     "fabstract/lazy": "dev-master",
-    "fabstract/validator": "dev-master",
-    "fabstract/linq": "dev-master",
     "symfony/http-foundation": "^3.4"
   },
   "repositories": [
@@ -57,14 +55,6 @@
     {
       "type": "vcs",
       "url": "git@github.com:Fabstract/Lazy.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/Validator.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/LINQ.git"
     }
   ]
 }
