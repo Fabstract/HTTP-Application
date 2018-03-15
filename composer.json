@@ -1,7 +1,7 @@
 {
-  "name": "fabstract/framework",
+  "name": "fabstract/http-application",
   "type": "library",
-  "description": "HTTP Framework for PHP",
+  "description": "HTTP Application for PHP",
   "keywords": [
     "php",
     "http",
