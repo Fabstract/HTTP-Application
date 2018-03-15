@@ -30,7 +30,7 @@
     "fabstract/di": "dev-master",
     "fabstract/lazy": "dev-master",
     "fabstract/validator": "dev-master",
-    "fabs/linq": "dev-develop",
+    "fabstract/linq": "dev-master",
     "symfony/http-foundation": "^3.4"
   },
   "repositories": [
@@ -61,6 +61,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:Fabstract/Validator.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/LINQ.git"
     }
   ]
 }
