@@ -68,7 +68,7 @@ class ExceptionLoggerService extends Injectable
         $request_context_string = $this->getRequestContext();
 
         $log_message = sprintf(
-            "\n%s\n\n%s\n\n message: %s \n file: %s:%s\n stacktrace: %s \n inputs: %s\n context: %s\n\n",
+            "\n>>\n%s\n\n%s\n\n message: %s \n file: %s:%s\n stacktrace: %s \n inputs: %s\n context: %s\n<<\n",
             DateTimeHandler::currentTime(),
             $exception_sequence,
             $exception->getMessage(),
