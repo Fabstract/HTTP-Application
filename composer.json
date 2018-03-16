@@ -29,6 +29,7 @@
     "fabstract/router": "dev-master",
     "fabstract/di": "dev-master",
     "fabstract/lazy": "dev-master",
+    "fabstract/datetimehandler": "dev-master",
     "symfony/http-foundation": "^3.4"
   },
   "repositories": [
@@ -55,6 +56,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:Fabstract/Lazy.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/DateTimeHandler.git"
     }
   ]
 }
