@@ -3,6 +3,7 @@
 namespace Fabs\Component\Http;
 
 use Fabs\Component\Http\Definition\ServiceDefinition\RequestDefinition;
+use Fabs\Component\Http\ExceptionHandler\GeneralExceptionHandler;
 
 abstract class HttpApplicationBase extends ApplicationBase
 {
@@ -14,6 +15,11 @@ abstract class HttpApplicationBase extends ApplicationBase
         });
 
         return $request_definition;
+    }
+
+    protected function onConstruct()
+    {
+        $this->addExceptionHandler(\Exception::class, GeneralExceptionHandler::class);
     }
 
     /**
