@@ -2,6 +2,8 @@
 
 namespace Fabs\Component\Http;
 
+use Fabs\Component\DependencyInjection\ServiceDefinition;
+use Fabs\Component\Http\Constant\Services;
 use Fabs\Component\Http\Definition\ServiceDefinition\RequestDefinition;
 use Fabs\Component\Http\ExceptionHandler\GeneralExceptionHandler;
 
@@ -20,6 +22,11 @@ abstract class HttpApplicationBase extends ApplicationBase
     protected function onConstruct()
     {
         $this->addExceptionHandler(\Exception::class, GeneralExceptionHandler::class);
+
+        $this->getContainer()->add(
+            (new ServiceDefinition(true))
+                ->setName(Services::EXCEPTION_LOGGER)
+                ->setClassName(ExceptionLoggerService::class));
     }
 
     /**

@@ -9,4 +9,5 @@ class Services
     const APPLICATION = 'application';
     const RESPONSE = 'response';
     const SERIALIZER = 'serializer';
+    const EXCEPTION_LOGGER = 'exception_logger';
 }

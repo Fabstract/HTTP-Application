@@ -13,6 +13,7 @@ use Fabs\Component\Serializer\SerializerInterface;
  * @property Response response
  * @property Router router
  * @property SerializerInterface serializer
+ * @property ExceptionLoggerService exception_logger
  */
 class Injectable extends \Fabs\Component\DependencyInjection\Injectable
 {
