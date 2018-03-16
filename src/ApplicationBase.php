@@ -29,7 +29,11 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     /** @var int */
     const DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH = 15; /* should use "private const" when switching to PHP 7.1 */
 
-    public final function __construct()
+    /**
+     * ApplicationBase constructor.
+     * @param ApplicationConfig $app_config
+     */
+    public final function __construct($app_config = null)
     {
         $this->setupExceptionHandling();
 
@@ -42,7 +46,11 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
 
         $this->getContainer()->add($application_definition);
 
-        $this->onConstruct();
+        if ($app_config !== null) {
+            Assert::isType($app_config, ApplicationConfig::class, 'app_config');
+        }
+
+        $this->onConstruct($app_config);
     }
 
     protected function setupExceptionHandling()
@@ -118,7 +126,10 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         throw $exception;
     }
 
-    protected function onConstruct()
+    /**
+     * @param ApplicationConfig $app_config
+     */
+    protected function onConstruct($app_config = null)
     {
     }
 
