@@ -4,9 +4,8 @@ namespace Fabstract\Component\Http;
 
 interface ModuleInterface
 {
-
     /**
-     * @return ResourceProviderInterface
+     * @return ResourceProviderInterface|string
      */
     public function getResourceProvider();
 
