@@ -1,10 +1,10 @@
 <?php
 
-namespace Fabs\Component\Http\Definition\ServiceDefinition;
+namespace Fabstract\Component\Http\Definition\ServiceDefinition;
 
-use Fabs\Component\DependencyInjection\ServiceDefinition;
-use Fabs\Component\Http\Constant\Services;
-use Fabs\Component\Router\RouterInterface;
+use Fabstract\Component\DependencyInjection\ServiceDefinition;
+use Fabstract\Component\Http\Constant\Services;
+use Fabstract\Component\Router\RouterInterface;
 
 final class RouterDefinition extends ServiceDefinition
 {

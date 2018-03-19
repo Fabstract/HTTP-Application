@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\Http\Definition\MiddlewareDefinition;
+use Fabstract\Component\Http\Definition\MiddlewareDefinition;
 
 interface MiddlewareAwareInterface
 {

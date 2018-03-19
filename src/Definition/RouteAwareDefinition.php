@@ -1,12 +1,12 @@
 <?php
 
-namespace Fabs\Component\Http\Definition;
+namespace Fabstract\Component\Http\Definition;
 
-use Fabs\Component\DependencyInjection\Definition;
-use Fabs\Component\Http\Assert;
-use Fabs\Component\Http\MiddlewareAwareInterface;
-use Fabs\Component\Http\MiddlewareAwareTrait;
-use Fabs\Component\Router\RouteAwareInterface;
+use Fabstract\Component\DependencyInjection\Definition;
+use Fabstract\Component\Http\Assert;
+use Fabstract\Component\Http\MiddlewareAwareInterface;
+use Fabstract\Component\Http\MiddlewareAwareTrait;
+use Fabstract\Component\Router\RouteAwareInterface;
 
 class RouteAwareDefinition extends Definition implements RouteAwareInterface, MiddlewareAwareInterface
 {

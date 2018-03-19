@@ -1,10 +1,10 @@
 <?php
 
-namespace Fabs\Component\Http\Definition\ServiceDefinition;
+namespace Fabstract\Component\Http\Definition\ServiceDefinition;
 
-use Fabs\Component\DependencyInjection\ServiceDefinition;
-use Fabs\Component\Http\Constant\Services;
-use Fabs\Component\Serializer\SerializerInterface;
+use Fabstract\Component\DependencyInjection\ServiceDefinition;
+use Fabstract\Component\Http\Constant\Services;
+use Fabstract\Component\Serializer\SerializerInterface;
 
 final class SerializerDefinition extends ServiceDefinition
 {

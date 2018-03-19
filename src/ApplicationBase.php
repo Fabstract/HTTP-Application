@@ -1,21 +1,21 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\DependencyInjection\ServiceDefinition;
-use Fabs\Component\Http\Bag\EndpointBag;
-use Fabs\Component\Http\Bag\ModuleBag;
-use Fabs\Component\Http\Bag\ResourceBag;
-use Fabs\Component\Http\Bag\ServiceBag;
-use Fabs\Component\Http\Constant\Services;
-use Fabs\Component\Http\Definition\ExceptionHandlerDefinition;
-use Fabs\Component\Http\Definition\ModuleDefinition;
-use Fabs\Component\Http\Definition\ResourceDefinition;
-use Fabs\Component\Http\Definition\ServiceDefinition\RequestDefinition;
-use Fabs\Component\Http\Exception\StatusCodeException\MethodNotAllowedException;
-use Fabs\Component\Http\Exception\StatusCodeException\NotFoundException;
-use Fabs\Component\Router\RouteAwareInterface;
-use Fabs\Component\Router\RouterMatchResult;
+use Fabstract\Component\DependencyInjection\ServiceDefinition;
+use Fabstract\Component\Http\Bag\EndpointBag;
+use Fabstract\Component\Http\Bag\ModuleBag;
+use Fabstract\Component\Http\Bag\ResourceBag;
+use Fabstract\Component\Http\Bag\ServiceBag;
+use Fabstract\Component\Http\Constant\Services;
+use Fabstract\Component\Http\Definition\ExceptionHandlerDefinition;
+use Fabstract\Component\Http\Definition\ModuleDefinition;
+use Fabstract\Component\Http\Definition\ResourceDefinition;
+use Fabstract\Component\Http\Definition\ServiceDefinition\RequestDefinition;
+use Fabstract\Component\Http\Exception\StatusCodeException\MethodNotAllowedException;
+use Fabstract\Component\Http\Exception\StatusCodeException\NotFoundException;
+use Fabstract\Component\Router\RouteAwareInterface;
+use Fabstract\Component\Router\RouterMatchResult;
 
 abstract class ApplicationBase extends Injectable implements MiddlewareAwareInterface
 {

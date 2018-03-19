@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabs\Component\Http\Definition;
+namespace Fabstract\Component\Http\Definition;
 
-use Fabs\Component\Http\ResourceInterface;
+use Fabstract\Component\Http\ResourceInterface;
 
 class ResourceDefinition extends RouteAwareDefinition
 {

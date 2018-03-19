@@ -1,17 +1,17 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
 
-use Fabs\Component\Http\Constant\Services;
-use Fabs\Component\Http\Definition\ServiceDefinition\RequestDefinition;
-use Fabs\Component\Http\Definition\ServiceDefinition\ResponseDefinition;
-use Fabs\Component\Http\Definition\ServiceDefinition\RouterDefinition;
-use Fabs\Component\Http\Definition\ServiceDefinition\SerializerDefinition;
-use Fabs\Component\Router\Router;
-use Fabs\Component\Serializer\JSONSerializer;
+use Fabstract\Component\Http\Constant\Services;
+use Fabstract\Component\Http\Definition\ServiceDefinition\RequestDefinition;
+use Fabstract\Component\Http\Definition\ServiceDefinition\ResponseDefinition;
+use Fabstract\Component\Http\Definition\ServiceDefinition\RouterDefinition;
+use Fabstract\Component\Http\Definition\ServiceDefinition\SerializerDefinition;
+use Fabstract\Component\Router\Router;
+use Fabstract\Component\Serializer\JSONSerializer;
 
-class Container extends \Fabs\Component\DependencyInjection\Container
+class Container extends \Fabstract\Component\DependencyInjection\Container
 {
     /**
      * Container constructor.

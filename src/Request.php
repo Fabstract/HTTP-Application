@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
 class Request extends \Symfony\Component\HttpFoundation\Request
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\Http\Exception\AssertionException;
+use Fabstract\Component\Http\Exception\AssertionException;
 
-class Assert extends \Fabs\Component\Assert\Assert
+class Assert extends \Fabstract\Component\Assert\Assert
 {
     protected static function generateException($name, $expected, $given)
     {

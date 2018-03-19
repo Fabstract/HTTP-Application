@@ -1,9 +1,9 @@
 <?php
 
-namespace Fabs\Component\Http\Bag;
+namespace Fabstract\Component\Http\Bag;
 
-use Fabs\Component\DependencyInjection\ServiceDefinition;
-use Fabs\Component\Http\Assert;
+use Fabstract\Component\DependencyInjection\ServiceDefinition;
+use Fabstract\Component\Http\Assert;
 
 class ServiceBag
 {

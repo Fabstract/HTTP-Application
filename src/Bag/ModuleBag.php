@@ -1,10 +1,10 @@
 <?php
 
-namespace Fabs\Component\Http\Bag;
+namespace Fabstract\Component\Http\Bag;
 
-use Fabs\Component\DependencyInjection\ContainerAware;
-use Fabs\Component\Http\Assert;
-use Fabs\Component\Http\Definition\ModuleDefinition;
+use Fabstract\Component\DependencyInjection\ContainerAware;
+use Fabstract\Component\Http\Assert;
+use Fabstract\Component\Http\Definition\ModuleDefinition;
 
 class ModuleBag extends ContainerAware
 {

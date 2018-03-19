@@ -1,11 +1,11 @@
 <?php
 
-namespace Fabs\Component\Http\ExceptionHandler;
+namespace Fabstract\Component\Http\ExceptionHandler;
 
-use Fabs\Component\Http\Exception\StatusCodeException\InternalServerErrorException;
-use Fabs\Component\Http\ExceptionHandlerInterface;
-use Fabs\Component\Http\ExceptionLoggerService;
-use Fabs\Component\Http\Injectable;
+use Fabstract\Component\Http\Exception\StatusCodeException\InternalServerErrorException;
+use Fabstract\Component\Http\ExceptionHandlerInterface;
+use Fabstract\Component\Http\ExceptionLoggerService;
+use Fabstract\Component\Http\Injectable;
 
 /**
  * Class LoggingGeneralExceptionHandler

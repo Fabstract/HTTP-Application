@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabs\Component\Http\Definition;
+namespace Fabstract\Component\Http\Definition;
 
 class ModuleDefinition extends RouteAwareDefinition
 {

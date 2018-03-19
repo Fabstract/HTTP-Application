@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
 interface ExceptionHandlerInterface
 {

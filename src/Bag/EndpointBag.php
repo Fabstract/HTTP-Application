@@ -1,10 +1,10 @@
 <?php
 
-namespace Fabs\Component\Http\Bag;
+namespace Fabstract\Component\Http\Bag;
 
-use Fabs\Component\Http\Assert;
-use Fabs\Component\Http\Endpoint;
-use Fabs\Component\Http\Injectable;
+use Fabstract\Component\Http\Assert;
+use Fabstract\Component\Http\Endpoint;
+use Fabstract\Component\Http\Injectable;
 
 class EndpointBag extends Injectable
 {

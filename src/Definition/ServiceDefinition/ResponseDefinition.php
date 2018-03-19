@@ -1,10 +1,10 @@
 <?php
 
-namespace Fabs\Component\Http\Definition\ServiceDefinition;
+namespace Fabstract\Component\Http\Definition\ServiceDefinition;
 
-use Fabs\Component\DependencyInjection\ServiceDefinition;
-use Fabs\Component\Http\Constant\Services;
-use Fabs\Component\Http\Response;
+use Fabstract\Component\DependencyInjection\ServiceDefinition;
+use Fabstract\Component\Http\Constant\Services;
+use Fabstract\Component\Http\Response;
 
 final class ResponseDefinition extends ServiceDefinition
 {

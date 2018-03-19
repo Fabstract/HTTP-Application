@@ -1,9 +1,9 @@
 <?php
 
-namespace Fabs\Component\Http\ExceptionHandler;
+namespace Fabstract\Component\Http\ExceptionHandler;
 
-use Fabs\Component\Http\Exception\StatusCodeException\InternalServerErrorException;
-use Fabs\Component\Http\ExceptionHandlerBase;
+use Fabstract\Component\Http\Exception\StatusCodeException\InternalServerErrorException;
+use Fabstract\Component\Http\ExceptionHandlerBase;
 
 class GeneralExceptionHandler extends ExceptionHandlerBase
 {

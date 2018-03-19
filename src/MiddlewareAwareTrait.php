@@ -1,9 +1,9 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\DependencyInjection\ContainerAwareInterface;
-use Fabs\Component\Http\Definition\MiddlewareDefinition;
+use Fabstract\Component\DependencyInjection\ContainerAwareInterface;
+use Fabstract\Component\Http\Definition\MiddlewareDefinition;
 
 trait MiddlewareAwareTrait
 {

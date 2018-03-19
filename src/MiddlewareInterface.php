@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\DependencyInjection\ContainerAwareInterface;
+use Fabstract\Component\DependencyInjection\ContainerAwareInterface;
 
 interface MiddlewareInterface extends ContainerAwareInterface
 {

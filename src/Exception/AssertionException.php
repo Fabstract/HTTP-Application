@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabs\Component\Http\Exception;
+namespace Fabstract\Component\Http\Exception;
 
-use Fabs\Component\Assert\AssertionExceptionInterface;
+use Fabstract\Component\Assert\AssertionExceptionInterface;
 
 class AssertionException extends Exception implements AssertionExceptionInterface
 {

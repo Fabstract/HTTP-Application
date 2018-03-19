@@ -1,9 +1,9 @@
 <?php
 
-namespace Fabs\Component\Http\Definition;
+namespace Fabstract\Component\Http\Definition;
 
-use Fabs\Component\DependencyInjection\Definition;
-use Fabs\Component\Http\MiddlewareInterface;
+use Fabstract\Component\DependencyInjection\Definition;
+use Fabstract\Component\Http\MiddlewareInterface;
 
 class MiddlewareDefinition extends Definition
 {

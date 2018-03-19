@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabs\Component\Http\Constant;
+namespace Fabstract\Component\Http\Constant;
 
 class HttpMethods
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\Http\Bag\ResourceBag;
+use Fabstract\Component\Http\Bag\ResourceBag;
 
 interface ResourceProviderInterface
 {

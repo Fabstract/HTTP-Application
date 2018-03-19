@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabs\Component\Http\Exception;
+namespace Fabstract\Component\Http\Exception;
 
 abstract class StatusCodeException extends Exception
 {

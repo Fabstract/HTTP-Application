@@ -1,9 +1,9 @@
 <?php
 
-namespace Fabs\Component\Http\Exception\StatusCodeException;
+namespace Fabstract\Component\Http\Exception\StatusCodeException;
 
-use Fabs\Component\Http\Constant\HttpStatus;
-use Fabs\Component\Http\Exception\StatusCodeException;
+use Fabstract\Component\Http\Constant\HttpStatus;
+use Fabstract\Component\Http\Exception\StatusCodeException;
 
 class UnsupportedMediaTypeException extends StatusCodeException
 {

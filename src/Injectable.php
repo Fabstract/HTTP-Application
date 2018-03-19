@@ -1,9 +1,9 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\Router\Router;
-use Fabs\Component\Serializer\SerializerInterface;
+use Fabstract\Component\Router\Router;
+use Fabstract\Component\Serializer\SerializerInterface;
 
 /**
  * Class Injectable
@@ -14,7 +14,7 @@ use Fabs\Component\Serializer\SerializerInterface;
  * @property Router router
  * @property SerializerInterface serializer
  */
-class Injectable extends \Fabs\Component\DependencyInjection\Injectable
+class Injectable extends \Fabstract\Component\DependencyInjection\Injectable
 {
 
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Fabs\Component\Http\Definition;
+namespace Fabstract\Component\Http\Definition;
 
-use Fabs\Component\DependencyInjection\Definition;
-use Fabs\Component\Http\Assert;
-use Fabs\Component\Http\ExceptionHandlerInterface;
+use Fabstract\Component\DependencyInjection\Definition;
+use Fabstract\Component\Http\Assert;
+use Fabstract\Component\Http\ExceptionHandlerInterface;
 
 class ExceptionHandlerDefinition extends Definition
 {

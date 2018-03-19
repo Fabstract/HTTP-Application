@@ -1,9 +1,9 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\Http\Constant\HttpMethods;
-use Fabs\Component\Router\RouteAwareInterface;
+use Fabstract\Component\Http\Constant\HttpMethods;
+use Fabstract\Component\Router\RouteAwareInterface;
 
 class Endpoint extends Injectable implements RouteAwareInterface
 {

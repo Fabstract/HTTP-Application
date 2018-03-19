@@ -1,9 +1,9 @@
 <?php
 
-namespace Fabs\Component\Http\Definition;
+namespace Fabstract\Component\Http\Definition;
 
-use Fabs\Component\DependencyInjection\Definition;
-use Fabs\Component\Http\ServiceProviderInterface;
+use Fabstract\Component\DependencyInjection\Definition;
+use Fabstract\Component\Http\ServiceProviderInterface;
 
 class ServiceProviderDefinition extends Definition
 {

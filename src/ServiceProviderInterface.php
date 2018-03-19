@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabs\Component\Http;
+namespace Fabstract\Component\Http;
 
-use Fabs\Component\Http\Bag\ServiceBag;
+use Fabstract\Component\Http\Bag\ServiceBag;
 
 interface ServiceProviderInterface
 {
