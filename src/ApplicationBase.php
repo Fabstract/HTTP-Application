@@ -25,6 +25,8 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     private $exception_handler_definition_list = [];
     /** @var int */
     private $current_exception_depth = 1;
+    /** @var ApplicationConfig */
+    private $application_config = null;
 
     /** @var int */
     const DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH = 15; /* should use "private const" when switching to PHP 7.1 */
@@ -48,6 +50,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
 
         if ($app_config !== null) {
             Assert::isType($app_config, ApplicationConfig::class, 'app_config');
+            $this->application_config = $app_config;
         }
 
         $this->onConstruct($app_config);
@@ -199,7 +202,15 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $http_method = $this->request->getMethod();
         $matched_action = $endpoint->getAction($http_method);
         if ($matched_action === null) {
-            throw new MethodNotAllowedException();
+            if ($this->application_config !== null &&
+                $this->application_config->getAutoAllowOptionsForEndpoints()
+            ) {
+                $matched_action = Action::create($endpoint, function () {
+                    return [];
+                });
+            } else {
+                throw new MethodNotAllowedException();
+            }
         }
 
         #endregion
