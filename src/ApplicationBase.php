@@ -228,6 +228,10 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
                 'service provider'
             );
 
+            if (is_string($module_service_provider)) {
+                $module_service_provider = new $module_service_provider();
+            }
+
             $service_bag = new ServiceBag();
             $module_service_provider->configureServiceBag($service_bag);
             $service_definition_list = $service_bag->getAll();

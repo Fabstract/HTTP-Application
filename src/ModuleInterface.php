@@ -10,7 +10,7 @@ interface ModuleInterface
     public function getResourceProvider();
 
     /**
-     * @return ServiceProviderInterface|null
+     * @return ServiceProviderInterface|string|null
      */
     public function getServiceProvider();
 }
