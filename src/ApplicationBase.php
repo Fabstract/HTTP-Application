@@ -176,6 +176,9 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         // Find matching resource
         $resource_provider = $module->getResourceProvider();
         Assert::isType($resource_provider, ResourceProviderInterface::class, 'resource provider');
+        if (is_string($resource_provider)) {
+            $resource_provider = new $resource_provider();
+        }
         $resource_bag = new ResourceBag();
         $resource_bag->setContainer($this->getContainer());
         $resource_provider->configureResourceBag($resource_bag);
