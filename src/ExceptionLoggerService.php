@@ -35,12 +35,12 @@ class ExceptionLoggerService extends Injectable
     }
 
     /**
-     * @param \Exception $exception
+     * @param \Throwable $throwable
      * @param null|string $custom_log_path
      */
-    public function log($exception, $custom_log_path = null)
+    public function log($throwable, $custom_log_path = null)
     {
-        Assert::isType($exception, \Exception::class, 'exception');
+        Assert::isType($throwable, \Throwable::class, 'exception');
 
         $log_path = $this->log_path;
         if ($custom_log_path !== null) {
@@ -49,21 +49,21 @@ class ExceptionLoggerService extends Injectable
             $log_path = $custom_log_path;
         }
 
-        $log_message = $this->createLogMessage($exception);
+        $log_message = $this->createLogMessage($throwable);
 
         try {
             file_put_contents($log_path, $log_message, FILE_APPEND);
-        } catch (\Exception $exception) {
+        } catch (\Exception $throwable) {
         }
     }
 
     /**
-     * @param \Exception $exception
+     * @param \Throwable $throwable
      * @return string
      */
-    protected function createLogMessage($exception)
+    protected function createLogMessage($throwable)
     {
-        $exception_sequence = $this->getExceptionSequence($exception);
+        $exception_sequence = $this->getExceptionSequence($throwable);
         $request_input = $this->getRequestInput();
         $request_context_string = $this->getRequestContext();
 
@@ -71,10 +71,10 @@ class ExceptionLoggerService extends Injectable
             "\n>>\n%s\n\n%s\n\n message: %s \n file: %s:%s\n stacktrace: %s \n inputs: %s\n context: %s\n<<\n",
             DateTimeHandler::currentTime(),
             $exception_sequence,
-            $exception->getMessage(),
-            $exception->getFile(),
-            strval($exception->getLine()),
-            $exception->getTraceAsString(),
+            $throwable->getMessage(),
+            $throwable->getFile(),
+            strval($throwable->getLine()),
+            $throwable->getTraceAsString(),
             $request_input,
             $request_context_string
         );
@@ -107,15 +107,15 @@ class ExceptionLoggerService extends Injectable
     }
 
     /**
-     * @param \Exception $exception
+     * @param \Throwable $throwable
      * @return string
      */
-    protected function getExceptionSequence($exception)
+    protected function getExceptionSequence($throwable)
     {
         $exception_class_list = [];
-        while ($exception !== null) {
-            $exception_class_list[] = get_class($exception);
-            $exception = $exception->getPrevious();
+        while ($throwable !== null) {
+            $exception_class_list[] = get_class($throwable);
+            $throwable = $throwable->getPrevious();
         }
 
         return implode($exception_class_list, "\nprev: ");
