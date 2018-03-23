@@ -259,7 +259,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         // Execute action
         $output = $matched_action->execute($resource, $action_parameters);
 
-        // Set response
+        // Set response's returned value
         $this->response->setReturnedValue($output);
 
         // Execute middleware after
@@ -273,6 +273,9 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $matched_resource_definition->executeFinalize();
         $matched_module_definition->executeFinalize();
         $this->executeFinalize();
+
+        // Set response's content which was most likely overriden by middlewares and ready to be sent.
+        $this->response->setContent($this->response->getReturnedValue());
 
         #endregion
     }
