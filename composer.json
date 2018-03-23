@@ -31,7 +31,7 @@
     "fabstract/lazy": "dev-master",
     "fabstract/datetimehandler": "dev-master",
     "fabstract/linq": "dev-master",
-    "symfony/http-foundation": "^3.4"
+    "symfony/http-foundation": "3.4.6-BETA5"
   },
   "repositories": [
     {
@@ -65,6 +65,10 @@
     {
       "type": "vcs",
       "url": "git@github.com:Fabstract/LINQ.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/http-foundation.git"
     }
   ]
 }
