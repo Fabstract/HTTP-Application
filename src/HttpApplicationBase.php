@@ -22,6 +22,7 @@ abstract class HttpApplicationBase extends ApplicationBase
 
     /**
      * @param ApplicationConfig|null $app_config
+     * @return void
      */
     protected function onConstruct($app_config = null)
     {

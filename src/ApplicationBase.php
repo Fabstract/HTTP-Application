@@ -131,6 +131,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
 
     /**
      * @param ApplicationConfig $app_config
+     * @return void
      */
     protected function onConstruct($app_config = null)
     {
