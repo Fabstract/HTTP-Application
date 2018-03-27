@@ -207,7 +207,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $matched_action = $endpoint->getAction($http_method);
         if ($matched_action === null) {
             if ($this->application_config !== null &&
-                $this->application_config->getAutoAllowOptionsForEndpoints()
+                $this->application_config->getAutoAllowHttpOptions()
             ) {
                 $matched_action = Action::create($endpoint, function () {
                     return [];

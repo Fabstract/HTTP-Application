@@ -7,7 +7,7 @@ class ApplicationConfig
     /** @var bool */
     public $enable_exception_logger = false;
     /** @var bool */
-    public $auto_allow_options_for_endpoints = false;
+    public $auto_allow_http_options = false;
 
     /**
      * @return bool
@@ -38,18 +38,18 @@ class ApplicationConfig
     /**
      * @return bool
      */
-    public function getAutoAllowOptionsForEndpoints()
+    public function getAutoAllowHttpOptions()
     {
-        return $this->auto_allow_options_for_endpoints;
+        return $this->auto_allow_http_options;
     }
 
     /**
-     * @param bool $auto_allow_options_for_endpoints
+     * @param bool $auto_allow_http_options
      * @return ApplicationConfig
      */
-    public function setAutoAllowOptionsForEndpoints($auto_allow_options_for_endpoints)
+    public function setAutoAllowHttpOptions($auto_allow_http_options)
     {
-        $this->auto_allow_options_for_endpoints = $auto_allow_options_for_endpoints;
+        $this->auto_allow_http_options = $auto_allow_http_options;
         return $this;
     }
 }
