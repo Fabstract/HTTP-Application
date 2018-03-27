@@ -14,13 +14,13 @@ class ServiceBag
 
     /**
      * @param ServiceDefinition $service_definition
-     * @return ServiceDefinition
+     * @return ServiceBag
      */
     public function addServiceDefinition($service_definition)
     {
         Assert::isType($service_definition, ServiceDefinition::class, 'service definition');
         $this->service_definition_list[] = $service_definition;
-        return $service_definition;
+        return $this;
     }
 
     /**
@@ -36,7 +36,8 @@ class ServiceBag
             ->setName($name)
             ->setClassName($class_name);
 
-        return $this->addServiceDefinition($service_definition);
+        $this->addServiceDefinition($service_definition);
+        return $service_definition;
     }
 
     /**
