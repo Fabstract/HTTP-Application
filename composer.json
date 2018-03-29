@@ -23,49 +23,17 @@
   },
   "require": {
     "php": "^7.0",
-    "fabstract/assert": "dev-master",
-    "fabstract/event": "dev-master",
-    "fabstract/serializer": "dev-master",
-    "fabstract/router": "dev-master",
-    "fabstract/di": "dev-master",
-    "fabstract/lazy": "dev-master",
-    "fabstract/datetime-handler": "dev-master",
-    "fabstract/linq": "dev-master",
+    "fabstract/assert": "^0.1.0",
+    "fabstract/event": "^0.2.0",
+    "fabstract/serializer": "^0.2.0",
+    "fabstract/router": "^0.3.0",
+    "fabstract/di": "^0.2.0",
+    "fabstract/lazy": "^0.2.0",
+    "fabstract/datetime-handler": "^0.1.0",
+    "fabstract/linq": "^0.1.0",
     "symfony/http-foundation": "3.4.6-BETA5"
   },
   "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/Assert.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/Serializer.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/Event.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/Router.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/Dependency-Injection.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/Lazy.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/DateTimeHandler.git"
-    },
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/LINQ.git"
-    },
     {
       "type": "vcs",
       "url": "git@github.com:Fabstract/http-foundation.git"
