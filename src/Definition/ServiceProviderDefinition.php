@@ -3,7 +3,7 @@
 namespace Fabstract\Component\Http\Definition;
 
 use Fabstract\Component\DependencyInjection\Definition;
-use Fabstract\Component\Http\ServiceProviderInterface;
+use Fabstract\Component\DependencyInjection\ServiceProviderInterface;
 
 class ServiceProviderDefinition extends Definition
 {

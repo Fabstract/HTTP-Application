@@ -3,10 +3,10 @@
 namespace Fabstract\Component\Http;
 
 use Fabstract\Component\DependencyInjection\ServiceDefinition;
+use Fabstract\Component\DependencyInjection\ServiceProviderInterface;
 use Fabstract\Component\Http\Bag\EndpointBag;
 use Fabstract\Component\Http\Bag\ModuleBag;
 use Fabstract\Component\Http\Bag\ResourceBag;
-use Fabstract\Component\Http\Bag\ServiceBag;
 use Fabstract\Component\Http\Constant\Services;
 use Fabstract\Component\Http\Definition\ExceptionHandlerDefinition;
 use Fabstract\Component\Http\Definition\ModuleDefinition;
@@ -230,15 +230,13 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
             );
 
             if (is_string($module_service_provider)) {
+                /** @var ServiceProviderInterface $module_service_provider */
                 $module_service_provider = new $module_service_provider();
             }
 
-            $service_bag = new ServiceBag();
-            $module_service_provider->configureServiceBag($service_bag);
-            $service_definition_list = $service_bag->getAll();
-            foreach ($service_definition_list as $service_definition) {
-                $this->getContainer()->add($service_definition);
-            }
+            /** @var \Fabstract\Component\DependencyInjection\Container $container */
+            $container = $this->getContainer();
+            $container->importFromServiceProvider($module_service_provider);
         }
 
         #endregion

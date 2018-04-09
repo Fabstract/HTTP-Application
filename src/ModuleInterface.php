@@ -2,6 +2,8 @@
 
 namespace Fabstract\Component\Http;
 
+use Fabstract\Component\DependencyInjection\ServiceProviderInterface;
+
 interface ModuleInterface
 {
     /**
