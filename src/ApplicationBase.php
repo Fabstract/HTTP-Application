@@ -4,6 +4,7 @@ namespace Fabstract\Component\Http;
 
 use Fabstract\Component\DependencyInjection\ServiceDefinition;
 use Fabstract\Component\DependencyInjection\ServiceProviderInterface;
+use Fabstract\Component\DependencyInjection\SubContainer;
 use Fabstract\Component\Http\Bag\EndpointBag;
 use Fabstract\Component\Http\Bag\ModuleBag;
 use Fabstract\Component\Http\Bag\ResourceBag;
@@ -27,6 +28,10 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     private $current_exception_depth = 1;
     /** @var ApplicationConfig */
     private $application_config = null;
+    /** @var ModuleInterface */
+    private $matched_module = null;
+    /** @var ResourceInterface */
+    private $matched_resource = null;
 
     /** @var int */
     const DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH = 15; /* should use "private const" when switching to PHP 7.1 */
@@ -172,6 +177,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $matched_module_definition = $module_match_result->getRouteAware();
         /** @var ModuleInterface $module */
         $module = $matched_module_definition->getInstance();
+        $this->setMatchedModule($module);
         $request_uri = $module_match_result->getRestOfUri();
 
         // Find matching resource
@@ -189,6 +195,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $matched_resource_definition = $resource_match_result->getRouteAware();
         /** @var ResourceInterface $resource */
         $resource = $matched_resource_definition->getInstance();
+        $this->setMatchedResource($resource);
         $request_uri = $resource_match_result->getRestOfUri();
 
         // Find matching endpoint
@@ -279,6 +286,42 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         #endregion
     }
 
+    /**
+     * @return ModuleInterface
+     */
+    protected function getMatchedModule()
+    {
+        return $this->matched_module;
+    }
+
+    /**
+     * @param ModuleInterface $matched_module
+     * @return ApplicationBase
+     */
+    protected function setMatchedModule($matched_module)
+    {
+        $this->matched_module = $matched_module;
+        return $this;
+    }
+
+    /**
+     * @return ResourceInterface
+     */
+    protected function getMatchedResource()
+    {
+        return $this->matched_resource;
+    }
+
+    /**
+     * @param ResourceInterface $matched_resource
+     * @return ApplicationBase
+     */
+    protected function setMatchedResource($matched_resource)
+    {
+        $this->matched_resource = $matched_resource;
+        return $this;
+    }
+    
     /**
      * @param string $uri
      * @param RouteAwareInterface[] $route_aware_list
