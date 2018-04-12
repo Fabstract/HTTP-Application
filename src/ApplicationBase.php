@@ -61,13 +61,15 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $this->onConstruct($app_config);
     }
 
-    protected function setupExceptionHandling()
+    /**
+     * @param \Fabstract\Component\DependencyInjection\ContainerInterface $container
+     * @return $this
+     */
+    public final function setContainer($container)
     {
-        set_error_handler(function ($error_no, $error_message, $error_file, $error_line) {
-            throw new \ErrorException($error_message, 0, $error_no, $error_file, $error_line);
-        });
-
-        set_exception_handler([$this, 'handleException']);
+        Assert::isType($container, Container::class, 'container');
+        parent::setContainer($container);
+        return $this;
     }
 
     /**
@@ -100,14 +102,6 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     }
 
     /**
-     * @return int
-     */
-    protected function getMaximumAllowedExceptionDepth()
-    {
-        return self::DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH;
-    }
-
-    /**
      * @param \Exception $exception
      * @throws \Exception
      */
@@ -135,6 +129,11 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     }
 
     /**
+     * @return void
+     */
+    public abstract function run();
+
+    /**
      * @param ApplicationConfig $app_config
      * @return void
      */
@@ -145,18 +144,22 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     /**
      * @return void
      */
-    public abstract function run();
+    protected function setupExceptionHandling()
+    {
+        set_error_handler(function ($error_no, $error_message, $error_file, $error_line) {
+            throw new \ErrorException($error_message, 0, $error_no, $error_file, $error_line);
+        });
+
+        set_exception_handler([$this, 'handleException']);
+    }
 
     /**
-     * @param ModuleBag $module_bag
-     * @return void
+     * @return int
      */
-    protected abstract function configureModuleBag($module_bag);
-
-    /**
-     * @return RequestDefinition
-     */
-    protected abstract function getRequestDefinition();
+    protected function getMaximumAllowedExceptionDepth()
+    {
+        return self::DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH;
+    }
 
     /**
      * @throws NotFoundException
@@ -359,6 +362,17 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     }
 
     /**
+     * @return RequestDefinition
+     */
+    protected abstract function getRequestDefinition();
+
+    /**
+     * @param ModuleBag $module_bag
+     * @return void
+     */
+    protected abstract function configureModuleBag($module_bag);
+
+    /**
      * @param string $uri
      * @param RouteAwareInterface[] $route_aware_list
      * @param bool $is_exact
@@ -373,11 +387,5 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         }
 
         return $match_result;
-    }
-
-    public final function setContainer($container)
-    {
-        Assert::isType($container, Container::class, 'container');
-        return parent::setContainer($container);
     }
 }
