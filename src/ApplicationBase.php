@@ -321,7 +321,43 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $this->matched_resource = $matched_resource;
         return $this;
     }
-    
+
+    /**
+     * @param string $name
+     * @param ServiceProviderInterface|string|callable $service_provider_or_creator
+     */
+    protected function addSubContainer($name, $service_provider_or_creator)
+    {
+        $sub_container_service_definition = new ServiceDefinition(true);
+        $sub_container_service_definition->setName($name);
+        $sub_container_service_definition->setCreator(function () use ($service_provider_or_creator) {
+            if ($service_provider_or_creator !== null) {
+                if (is_callable($service_provider_or_creator)) {
+                    $service_provider_or_creator = $service_provider_or_creator();
+                }
+
+                Assert::isType(
+                    $service_provider_or_creator,
+                    ServiceProviderInterface::class,
+                    'service provider'
+                );
+
+                if (is_string($service_provider_or_creator)) {
+                    /** @var ServiceProviderInterface $service_provider_or_creator */
+                    $service_provider_or_creator = new $service_provider_or_creator();
+                }
+
+                $processor_container = new SubContainer();
+                $processor_container->importFromServiceProvider($service_provider_or_creator);
+                return $processor_container;
+            }
+            return null;
+        });
+
+        $container = $this->getContainer();
+        $container->add($sub_container_service_definition);
+    }
+
     /**
      * @param string $uri
      * @param RouteAwareInterface[] $route_aware_list
