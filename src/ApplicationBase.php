@@ -350,9 +350,10 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
                     $service_provider_or_creator = new $service_provider_or_creator();
                 }
 
-                $processor_container = new SubContainer();
-                $processor_container->importFromServiceProvider($service_provider_or_creator);
-                return $processor_container;
+                $sub_container = new SubContainer();
+                $sub_container->setContainer($this->getContainer());
+                $sub_container->importFromServiceProvider($service_provider_or_creator);
+                return $sub_container;
             }
             return null;
         });
