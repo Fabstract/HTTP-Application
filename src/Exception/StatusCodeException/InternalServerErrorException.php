@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Fabstract\Component\Http\Exception\StatusCodeException;
 
 
