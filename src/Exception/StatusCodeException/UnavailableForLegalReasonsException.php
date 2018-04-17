@@ -6,14 +6,14 @@ namespace Fabstract\Component\Http\Exception\StatusCodeException;
 use Fabstract\Component\Http\Constant\HttpStatus;
 use Fabstract\Component\Http\Exception\StatusCodeException;
 
-class InternalServerErrorException extends StatusCodeException
+class UnavailableForLegalReasonsException extends StatusCodeException
 {
     /**
-     * InternalServerErrorException constructor.
+     * UnavailableForLegalReasonsException constructor.
      * @param mixed $error_details
      */
     public function __construct($error_details = null)
     {
-        parent::__construct(500, HttpStatus::INTERNAL_SERVER_ERROR, $error_details);
+        parent::__construct(451, HttpStatus::UNAVAILABLE_FOR_LEGAL_REASONS, $error_details);
     }
 }
