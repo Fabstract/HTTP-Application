@@ -27,7 +27,7 @@
     "fabstract/event": "^0.2.0",
     "fabstract/serializer": "^0.2.0",
     "fabstract/router": "^0.3.0",
-    "fabstract/di": "^0.3.0",
+    "fabstract/di": "^0.4.0",
     "fabstract/lazy": "^0.2.0",
     "fabstract/datetime-handler": "^0.1.0",
     "fabstract/linq": "^0.1.0",

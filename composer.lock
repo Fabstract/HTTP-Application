@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "443618a053e49e282c2f7b271d479084",
+    "content-hash": "6b83270528d9d10a9f31c3695ed07dcb",
     "packages": [
         {
             "name": "fabstract/assert",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Assert.git",
-                "reference": "97b2555926723590e7fa64af9230745178051cbe"
+                "reference": "272e7f23e4f4b8a048faabe58523e6d199d4758c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Assert/zipball/97b2555926723590e7fa64af9230745178051cbe",
-                "reference": "97b2555926723590e7fa64af9230745178051cbe",
+                "url": "https://api.github.com/repos/Fabstract/Assert/zipball/272e7f23e4f4b8a048faabe58523e6d199d4758c",
+                "reference": "272e7f23e4f4b8a048faabe58523e6d199d4758c",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "assert",
                 "php"
             ],
-            "time": "2018-03-29T07:05:18+00:00"
+            "time": "2018-04-17T08:25:46+00:00"
         },
         {
             "name": "fabstract/datetime-handler",
@@ -92,16 +92,16 @@
         },
         {
             "name": "fabstract/di",
-            "version": "v0.3.0",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Dependency-Injection.git",
-                "reference": "3bb06cf5015ba017c33b00630adbf77829b09e5e"
+                "reference": "27f0cc0d27d14f948354737c8c51d6010345fb7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Dependency-Injection/zipball/3bb06cf5015ba017c33b00630adbf77829b09e5e",
-                "reference": "3bb06cf5015ba017c33b00630adbf77829b09e5e",
+                "url": "https://api.github.com/repos/Fabstract/Dependency-Injection/zipball/27f0cc0d27d14f948354737c8c51d6010345fb7b",
+                "reference": "27f0cc0d27d14f948354737c8c51d6010345fb7b",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +134,7 @@
                 "injection",
                 "php"
             ],
-            "time": "2018-04-09T14:20:00+00:00"
+            "time": "2018-04-17T08:44:14+00:00"
         },
         {
             "name": "fabstract/event",
@@ -260,16 +260,16 @@
         },
         {
             "name": "fabstract/router",
-            "version": "v0.3.0",
+            "version": "v0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Router.git",
-                "reference": "4e8b978a7e04f458cea22edb69c115cea9b5cdb0"
+                "reference": "09f8b96c1e0a338df730846dfe0b5a9e59eb4f90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Router/zipball/4e8b978a7e04f458cea22edb69c115cea9b5cdb0",
-                "reference": "4e8b978a7e04f458cea22edb69c115cea9b5cdb0",
+                "url": "https://api.github.com/repos/Fabstract/Router/zipball/09f8b96c1e0a338df730846dfe0b5a9e59eb4f90",
+                "reference": "09f8b96c1e0a338df730846dfe0b5a9e59eb4f90",
                 "shasum": ""
             },
             "require": {
@@ -298,7 +298,7 @@
                 "php",
                 "router"
             ],
-            "time": "2018-03-29T14:18:55+00:00"
+            "time": "2018-04-10T07:11:42+00:00"
         },
         {
             "name": "fabstract/serializer",
