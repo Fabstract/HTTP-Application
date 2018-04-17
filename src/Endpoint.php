@@ -33,18 +33,18 @@ class Endpoint extends Injectable implements RouteAwareInterface
      * @param Action|string|callable $action
      * @return $this
      */
-    public function addPOST($action)
+    public function addGET($action)
     {
-        return $this->addAction(HttpMethods::POST, $action);
+        return $this->addAction(HttpMethods::GET, $action);
     }
 
     /**
      * @param Action|string|callable $action
      * @return $this
      */
-    public function addGET($action)
+    public function addPOST($action)
     {
-        return $this->addAction(HttpMethods::GET, $action);
+        return $this->addAction(HttpMethods::POST, $action);
     }
 
     /**
@@ -60,15 +60,6 @@ class Endpoint extends Injectable implements RouteAwareInterface
      * @param Action|string|callable $action
      * @return $this
      */
-    public function addHEAD($action)
-    {
-        return $this->addAction(HttpMethods::HEAD, $action);
-    }
-
-    /**
-     * @param Action|string|callable $action
-     * @return $this
-     */
     public function addPATCH($action)
     {
         return $this->addAction(HttpMethods::PATCH, $action);
@@ -78,18 +69,27 @@ class Endpoint extends Injectable implements RouteAwareInterface
      * @param Action|string|callable $action
      * @return $this
      */
-    public function addOPTIONS($action)
+    public function addDELETE($action)
     {
-        return $this->addAction(HttpMethods::OPTIONS, $action);
+        return $this->addAction(HttpMethods::DELETE, $action);
     }
 
     /**
      * @param Action|string|callable $action
      * @return $this
      */
-    public function addDELETE($action)
+    public function addHEAD($action)
     {
-        return $this->addAction(HttpMethods::DELETE, $action);
+        return $this->addAction(HttpMethods::HEAD, $action);
+    }
+
+    /**
+     * @param Action|string|callable $action
+     * @return $this
+     */
+    public function addOPTIONS($action)
+    {
+        return $this->addAction(HttpMethods::OPTIONS, $action);
     }
 
     /**
