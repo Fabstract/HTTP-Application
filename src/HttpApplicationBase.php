@@ -42,6 +42,8 @@ abstract class HttpApplicationBase extends ApplicationBase
 
     /**
      * @return void
+     * @throws Exception\StatusCodeException\MethodNotAllowedException
+     * @throws Exception\StatusCodeException\NotFoundException
      */
     public function run()
     {
