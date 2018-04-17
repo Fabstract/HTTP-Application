@@ -22,7 +22,7 @@ class HttpStatus
     const PRECONDITION_FAILED = "precondition_failed";
     const PAYLOAD_TOO_LARGE = "payload_too_large";
     const URI_TOO_LONG = "uri_too_long";
-    const REQUESTED_RANGE_NOT_SATISFIABLE = "requsted_range_not_satisfiable";
+    const REQUESTED_RANGE_NOT_SATISFIABLE = "requested_range_not_satisfiable";
     const EXPECTATION_FAILED = "expectation_failed";
     const MISDIRECTED_REQUEST = "misdirected_request";
     const LOCKED = "locked";
