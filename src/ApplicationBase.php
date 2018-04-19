@@ -61,7 +61,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     }
 
     /**
-     * @param \Fabstract\Component\DependencyInjection\ContainerInterface $container
+     * @param Container $container
      * @return $this
      */
     public final function setContainer($container)
@@ -69,6 +69,16 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         Assert::isType($container, Container::class, 'container');
         parent::setContainer($container);
         return $this;
+    }
+
+    /**
+     * @return Container
+     */
+    public function getContainer()
+    {
+        /** @var Container $container */
+        $container = parent::getContainer();
+        return $container;
     }
 
     /**
