@@ -24,4 +24,28 @@ class Request extends \Symfony\Component\HttpFoundation\Request
     {
         return $this->body;
     }
+
+    /**
+     * @return string
+     */
+    public function getClientPublicIp()
+    {
+        $full_ip = $this->getClientIp();
+        $ip_parts = explode(',', $full_ip);
+        return $ip_parts[0];
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getClientLocalIp()
+    {
+        $full_ip = $this->getClientIp();
+        $ip_parts = explode(',', $full_ip);
+        if (count($ip_parts) > 1) {
+            return $ip_parts[1];
+        }
+
+        return null;
+    }
 }
