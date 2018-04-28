@@ -7,6 +7,7 @@ use Fabstract\Component\DependencyInjection\ServiceProviderInterface;
 use Fabstract\Component\Http\Bag\EndpointBag;
 use Fabstract\Component\Http\Bag\ModuleBag;
 use Fabstract\Component\Http\Bag\ResourceBag;
+use Fabstract\Component\Http\Constant\HttpMethods;
 use Fabstract\Component\Http\Constant\Services;
 use Fabstract\Component\Http\Definition\ExceptionHandlerDefinition;
 use Fabstract\Component\Http\Definition\ModuleDefinition;
@@ -226,7 +227,8 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $http_method = $this->request->getMethod();
         $matched_action = $endpoint->getAction($http_method);
         if ($matched_action === null) {
-            if ($this->application_config !== null &&
+            if ($http_method === HttpMethods::OPTIONS &&
+                $this->application_config !== null &&
                 $this->application_config->getAutoAllowHttpOptions()
             ) {
                 $matched_action = Action::create($endpoint, function () {
