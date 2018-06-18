@@ -22,7 +22,7 @@
     }
   },
   "require": {
-    "php": "^7.0",
+    "php": "^7.1",
     "fabstract/assert": "^0.1.0",
     "fabstract/event": "^0.2.0",
     "fabstract/serializer": "^0.2.0",
