@@ -1,32 +1,36 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b83270528d9d10a9f31c3695ed07dcb",
+    "content-hash": "4928725399a24d9f7b38ed55478fef5b",
     "packages": [
         {
             "name": "fabstract/assert",
-            "version": "v0.1.1",
+            "version": "v0.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Assert.git",
-                "reference": "272e7f23e4f4b8a048faabe58523e6d199d4758c"
+                "reference": "30c2df59e52a8d2990db507c85661514426d5f53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Assert/zipball/272e7f23e4f4b8a048faabe58523e6d199d4758c",
-                "reference": "272e7f23e4f4b8a048faabe58523e6d199d4758c",
+                "url": "https://api.github.com/repos/Fabstract/Assert/zipball/30c2df59e52a8d2990db507c85661514426d5f53",
+                "reference": "30c2df59e52a8d2990db507c85661514426d5f53",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0"
             },
+            "require-dev": {
+                "phpunit/phpunit": "^7.1"
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Fabstract\\Component\\Assert\\": "src"
+                    "Fabstract\\Component\\Assert\\": "src",
+                    "Fabstract\\Component\\Assert\\Test\\": "test"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -45,20 +49,20 @@
                 "assert",
                 "php"
             ],
-            "time": "2018-04-17T08:25:46+00:00"
+            "time": "2018-05-30T07:57:43+00:00"
         },
         {
             "name": "fabstract/datetime-handler",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/DateTimeHandler.git",
-                "reference": "66b3be5e7fbdd9039619cb328786adf18c080628"
+                "reference": "bca9610bae1090fb1f72704e3b5f1f7cbad5316f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/DateTimeHandler/zipball/66b3be5e7fbdd9039619cb328786adf18c080628",
-                "reference": "66b3be5e7fbdd9039619cb328786adf18c080628",
+                "url": "https://api.github.com/repos/Fabstract/DateTimeHandler/zipball/bca9610bae1090fb1f72704e3b5f1f7cbad5316f",
+                "reference": "bca9610bae1090fb1f72704e3b5f1f7cbad5316f",
                 "shasum": ""
             },
             "require": {
@@ -88,20 +92,20 @@
                 "php",
                 "time"
             ],
-            "time": "2018-03-27T12:17:45+00:00"
+            "time": "2018-04-27T13:32:05+00:00"
         },
         {
             "name": "fabstract/di",
-            "version": "v0.4.0",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Dependency-Injection.git",
-                "reference": "27f0cc0d27d14f948354737c8c51d6010345fb7b"
+                "reference": "7c77bdc4787dccc0f1a8dc6240316541f08ca0a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Dependency-Injection/zipball/27f0cc0d27d14f948354737c8c51d6010345fb7b",
-                "reference": "27f0cc0d27d14f948354737c8c51d6010345fb7b",
+                "url": "https://api.github.com/repos/Fabstract/Dependency-Injection/zipball/7c77bdc4787dccc0f1a8dc6240316541f08ca0a5",
+                "reference": "7c77bdc4787dccc0f1a8dc6240316541f08ca0a5",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +138,7 @@
                 "injection",
                 "php"
             ],
-            "time": "2018-04-17T08:44:14+00:00"
+            "time": "2018-04-17T09:20:19+00:00"
         },
         {
             "name": "fabstract/event",
@@ -302,16 +306,16 @@
         },
         {
             "name": "fabstract/serializer",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Serializer.git",
-                "reference": "36772742b1787110fc391a48266bb5c0a3073cab"
+                "reference": "d775467d81b902c32639ed266d452fed5d9c7e9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Serializer/zipball/36772742b1787110fc391a48266bb5c0a3073cab",
-                "reference": "36772742b1787110fc391a48266bb5c0a3073cab",
+                "url": "https://api.github.com/repos/Fabstract/Serializer/zipball/d775467d81b902c32639ed266d452fed5d9c7e9a",
+                "reference": "d775467d81b902c32639ed266d452fed5d9c7e9a",
                 "shasum": ""
             },
             "require": {
@@ -343,7 +347,7 @@
                 "php",
                 "serialize"
             ],
-            "time": "2018-03-29T14:34:08+00:00"
+            "time": "2018-05-28T13:35:18+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -441,6 +445,53 @@
                 "psr"
             ],
             "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "symfony/http-foundation",
