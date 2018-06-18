@@ -4,6 +4,13 @@ namespace Fabstract\Component\Http;
 
 use Fabstract\Component\DateTimeHandler\DateTimeHandler;
 
+/**
+ * Class ExceptionLoggerService
+ * @package Fabstract\Component\Http
+ *
+ * @deprecated Use SimpleExceptionLoggerService instead.
+ * @see SimpleExceptionLoggerService
+ */
 class ExceptionLoggerService extends Injectable
 {
     /** @var string */
