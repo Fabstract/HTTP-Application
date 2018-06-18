@@ -4,14 +4,15 @@ namespace Fabstract\Component\Http\ExceptionHandler;
 
 use Fabstract\Component\Http\Exception\StatusCodeException\InternalServerErrorException;
 use Fabstract\Component\Http\ExceptionHandlerInterface;
-use Fabstract\Component\Http\ExceptionLoggerService;
 use Fabstract\Component\Http\Injectable;
+use Fabstract\Component\Http\ThrowableLoggerInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class LoggingGeneralExceptionHandler
  * @package Fabs\Component\Http\ExceptionHandler
  *
- * @property ExceptionLoggerService exception_logger
+ * @property LoggerInterface exception_logger
  */
 class LoggingGeneralExceptionHandler extends Injectable implements ExceptionHandlerInterface
 {
@@ -21,7 +22,13 @@ class LoggingGeneralExceptionHandler extends Injectable implements ExceptionHand
      */
     public function handle($exception)
     {
-        $this->exception_logger->log($exception, 'internal_server_error_log.txt');
+        if ($this->getContainer()->has('exception_logger')) {
+            if ($this->exception_logger instanceof ThrowableLoggerInterface) {
+                $this->exception_logger->logThrowable($exception);
+            } else {
+                $this->exception_logger->error($exception->getMessage());
+            }
+        }
 
         throw new InternalServerErrorException();
     }
