@@ -26,7 +26,7 @@ class LoggingGeneralExceptionHandler extends Injectable implements ExceptionHand
             if ($this->exception_logger instanceof ThrowableLoggerInterface) {
                 $this->exception_logger->logThrowable($exception);
             } else {
-                $this->exception_logger->error($exception->getMessage());
+                $this->exception_logger->error(strval($exception));
             }
         }
 
