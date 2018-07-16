@@ -42,4 +42,13 @@ class ExceptionHandlerDefinition extends Definition
     {
         return parent::getInstance();
     }
+
+    /**
+     * @param string $exception_type
+     * @return ExceptionHandlerDefinition
+     */
+    public static function create($exception_type)
+    {
+        return new static($exception_type);
+    }
 }
