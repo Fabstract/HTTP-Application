@@ -7,9 +7,9 @@ use Fabstract\Component\DependencyInjection\ServiceProviderInterface;
 interface ModuleInterface
 {
     /**
-     * @return ResourceProviderInterface|string
+     * @return ControllerProviderInterface|string
      */
-    public function getResourceProvider();
+    public function getControllerProvider();
 
     /**
      * @return ServiceProviderInterface|string|null

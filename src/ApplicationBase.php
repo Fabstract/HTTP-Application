@@ -6,12 +6,12 @@ use Fabstract\Component\DependencyInjection\ServiceDefinition;
 use Fabstract\Component\DependencyInjection\ServiceProviderInterface;
 use Fabstract\Component\Http\Bag\EndpointBag;
 use Fabstract\Component\Http\Bag\ModuleBag;
-use Fabstract\Component\Http\Bag\ResourceBag;
+use Fabstract\Component\Http\Bag\ControllerBag;
 use Fabstract\Component\Http\Constant\HttpMethods;
 use Fabstract\Component\Http\Constant\Services;
 use Fabstract\Component\Http\Definition\ExceptionHandlerDefinition;
 use Fabstract\Component\Http\Definition\ModuleDefinition;
-use Fabstract\Component\Http\Definition\ResourceDefinition;
+use Fabstract\Component\Http\Definition\ControllerDefinition;
 use Fabstract\Component\Http\Definition\ServiceDefinition\RequestDefinition;
 use Fabstract\Component\Http\Exception\StatusCodeException\MethodNotAllowedException;
 use Fabstract\Component\Http\Exception\StatusCodeException\NotFoundException;
@@ -30,8 +30,8 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     private $application_config = null;
     /** @var ModuleInterface */
     private $matched_module = null;
-    /** @var ResourceInterface */
-    private $matched_resource = null;
+    /** @var ControllerInterface */
+    private $matched_controller = null;
 
     /** @var int */
     const DEFAULT_MAXIMUM_ALLOWED_EXCEPTION_DEPTH = 15; /* should use "private const" when switching to PHP 7.1 */
@@ -194,28 +194,28 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $this->setMatchedModule($module);
         $request_uri = $module_match_result->getRestOfUri();
 
-        // Find matching resource
-        $resource_provider = $module->getResourceProvider();
-        Assert::isType($resource_provider, ResourceProviderInterface::class, 'resource provider');
-        if (is_string($resource_provider)) {
-            $resource_provider = new $resource_provider();
+        // Find matching controller
+        $controller_provider = $module->getControllerProvider();
+        Assert::isType($controller_provider, ControllerProviderInterface::class, 'controller provider');
+        if (is_string($controller_provider)) {
+            $controller_provider = new $controller_provider();
         }
-        $resource_bag = new ResourceBag();
-        $resource_bag->setContainer($this->getContainer());
-        $resource_provider->configureResourceBag($resource_bag);
-        $resource_definition_list = $resource_bag->getAll();
-        $resource_match_result = $this->getMatchingRouteAwareFromList($request_uri, $resource_definition_list);
-        /** @var ResourceDefinition $matched_resource_definition */
-        $matched_resource_definition = $resource_match_result->getRouteAware();
-        /** @var ResourceInterface $resource */
-        $resource = $matched_resource_definition->getInstance();
-        $this->setMatchedResource($resource);
-        $request_uri = $resource_match_result->getRestOfUri();
+        $controller_bag = new ControllerBag();
+        $controller_bag->setContainer($this->getContainer());
+        $controller_provider->configureControllerBag($controller_bag);
+        $controller_definition_list = $controller_bag->getAll();
+        $controller_match_result = $this->getMatchingRouteAwareFromList($request_uri, $controller_definition_list);
+        /** @var ControllerDefinition $matched_controller_definition */
+        $matched_controller_definition = $controller_match_result->getRouteAware();
+        /** @var ControllerInterface $controller */
+        $controller = $matched_controller_definition->getInstance();
+        $this->setMatchedController($controller);
+        $request_uri = $controller_match_result->getRestOfUri();
 
         // Find matching endpoint
         $endpoint_bag = new EndpointBag();
         $endpoint_bag->setContainer($this->getContainer());
-        $resource->configureEndpointBag($endpoint_bag);
+        $controller->configureEndpointBag($endpoint_bag);
         /** @var Endpoint[] $endpoint_list */
         $endpoint_list = $endpoint_bag->getAll();
         $endpoint_match_result = $this->getMatchingRouteAwareFromList($request_uri, $endpoint_list, true);
@@ -268,30 +268,30 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         // Execute middleware initialize
         $this->executeInitialize();
         $matched_module_definition->executeInitialize();
-        $matched_resource_definition->executeInitialize();
+        $matched_controller_definition->executeInitialize();
         $matched_action->executeInitialize();
 
         // Execute middleware before
         $this->executeBefore();
         $matched_module_definition->executeBefore();
-        $matched_resource_definition->executeBefore();
+        $matched_controller_definition->executeBefore();
         $matched_action->executeBefore();
 
         // Execute action
-        $output = $matched_action->execute($resource, $action_parameters);
+        $output = $matched_action->execute($controller, $action_parameters);
 
         // Set response's returned value
         $this->response->setReturnedValue($output);
 
         // Execute middleware after
         $matched_action->executeAfter();
-        $matched_resource_definition->executeAfter();
+        $matched_controller_definition->executeAfter();
         $matched_module_definition->executeAfter();
         $this->executeAfter();
 
         // Execute middleware finalize
         $matched_action->executeFinalize();
-        $matched_resource_definition->executeFinalize();
+        $matched_controller_definition->executeFinalize();
         $matched_module_definition->executeFinalize();
         $this->executeFinalize();
 
@@ -320,20 +320,20 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
     }
 
     /**
-     * @return ResourceInterface
+     * @return ControllerInterface
      */
-    protected function getMatchedResource()
+    protected function getMatchedController()
     {
-        return $this->matched_resource;
+        return $this->matched_controller;
     }
 
     /**
-     * @param ResourceInterface $matched_resource
+     * @param ControllerInterface $matched_controller
      * @return ApplicationBase
      */
-    protected function setMatchedResource($matched_resource)
+    protected function setMatchedController($matched_controller)
     {
-        $this->matched_resource = $matched_resource;
+        $this->matched_controller = $matched_controller;
         return $this;
     }
 

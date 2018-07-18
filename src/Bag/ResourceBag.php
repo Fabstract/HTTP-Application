@@ -6,6 +6,13 @@ use Fabstract\Component\Http\Assert;
 use Fabstract\Component\Http\Definition\ResourceDefinition;
 use Fabstract\Component\Http\Injectable;
 
+/**
+ * Class ResourceBag
+ * @package Fabstract\Component\Http\Bag
+ *
+ * @deprecated Use ControllerBag instead.
+ * @see ControllerBag
+ */
 class ResourceBag extends Injectable
 {
     /**

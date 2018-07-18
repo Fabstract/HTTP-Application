@@ -4,14 +4,7 @@ namespace Fabstract\Component\Http;
 
 use Fabstract\Component\Http\Bag\EndpointBag;
 
-/**
- * Interface ResourceInterface
- * @package Fabstract\Component\Http
- *
- * @deprecated Use ControllerInterface instead.
- * @see ControllerInterface
- */
-interface ResourceInterface
+interface ControllerInterface
 {
     /**
      * @param EndpointBag $endpoint_bag

@@ -4,6 +4,13 @@ namespace Fabstract\Component\Http;
 
 use Fabstract\Component\Http\Bag\ResourceBag;
 
+/**
+ * Interface ResourceProviderInterface
+ * @package Fabstract\Component\Http
+ *
+ * @deprecated Use ControllerProviderInterface instead.
+ * @see ControllerProviderInterface
+ */
 interface ResourceProviderInterface
 {
     /**
