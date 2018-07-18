@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4928725399a24d9f7b38ed55478fef5b",
+    "content-hash": "6bb70d355fb4175ff43825247b3e29e2",
     "packages": [
         {
             "name": "fabstract/assert",
@@ -96,16 +96,16 @@
         },
         {
             "name": "fabstract/di",
-            "version": "v0.4.1",
+            "version": "v0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Dependency-Injection.git",
-                "reference": "7c77bdc4787dccc0f1a8dc6240316541f08ca0a5"
+                "reference": "c6c09faad9bf8e035428a2e35544c0a561f8e9f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Dependency-Injection/zipball/7c77bdc4787dccc0f1a8dc6240316541f08ca0a5",
-                "reference": "7c77bdc4787dccc0f1a8dc6240316541f08ca0a5",
+                "url": "https://api.github.com/repos/Fabstract/Dependency-Injection/zipball/c6c09faad9bf8e035428a2e35544c0a561f8e9f5",
+                "reference": "c6c09faad9bf8e035428a2e35544c0a561f8e9f5",
                 "shasum": ""
             },
             "require": {
@@ -138,7 +138,7 @@
                 "injection",
                 "php"
             ],
-            "time": "2018-04-17T09:20:19+00:00"
+            "time": "2018-07-18T14:19:27+00:00"
         },
         {
             "name": "fabstract/event",
@@ -677,7 +677,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.0"
+        "php": "^7.1"
     },
     "platform-dev": []
 }
