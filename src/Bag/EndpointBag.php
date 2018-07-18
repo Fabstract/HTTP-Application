@@ -2,28 +2,17 @@
 
 namespace Fabstract\Component\Http\Bag;
 
-use Fabstract\Component\Http\Assert;
 use Fabstract\Component\Http\Endpoint;
-use Fabstract\Component\Http\Injectable;
 
-class EndpointBag extends Injectable
+/**
+ * Class EndpointBag
+ * @package Fabstract\Component\Http\Bag
+ *
+ * @method Endpoint add(Endpoint $sa)
+ * @method Endpoint[] getAll()
+ */
+class EndpointBag extends ContainerAwareBagBase
 {
-    /**
-     * @var Endpoint[]
-     */
-    private $endpoint_list = [];
-
-    /**
-     * @param Endpoint $endpoint
-     * @return Endpoint
-     */
-    public function addEndpoint($endpoint)
-    {
-        Assert::isType($endpoint, Endpoint::class, 'endpoint');
-        $endpoint->setContainer($this->getContainer());
-        $this->endpoint_list[] = $endpoint;
-        return $endpoint;
-    }
 
     /**
      * @param string $route
@@ -31,16 +20,13 @@ class EndpointBag extends Injectable
      */
     public function create($route)
     {
-        return $this->addEndpoint(
+        return $this->add(
             Endpoint::create($route)
         );
     }
 
-    /**
-     * @return Endpoint[]
-     */
-    public function getAll()
+    protected function getContainerAwareElementClass()
     {
-        return $this->endpoint_list;
+        return Endpoint::class;
     }
 }

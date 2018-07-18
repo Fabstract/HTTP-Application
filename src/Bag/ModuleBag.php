@@ -2,26 +2,17 @@
 
 namespace Fabstract\Component\Http\Bag;
 
-use Fabstract\Component\DependencyInjection\ContainerAware;
-use Fabstract\Component\Http\Assert;
 use Fabstract\Component\Http\Definition\ModuleDefinition;
 
-class ModuleBag extends ContainerAware
+/**
+ * Class ModuleBag
+ * @package Fabstract\Component\Http\Bag
+ *
+ * @method ModuleDefinition add(ModuleDefinition $sa)
+ * @method ModuleDefinition[] getAll()
+ */
+class ModuleBag extends ContainerAwareBagBase
 {
-    /** @var ModuleDefinition[] */
-    private $module_definition_list = [];
-
-    /**
-     * @param ModuleDefinition $module_definition
-     * @return ModuleDefinition
-     */
-    public function addDefinition($module_definition)
-    {
-        Assert::isType($module_definition, ModuleDefinition::class, 'module definition');
-        $module_definition->setContainer($this->getContainer());
-        $this->module_definition_list[] = $module_definition;
-        return $module_definition;
-    }
 
     /**
      * @param string $route
@@ -30,16 +21,13 @@ class ModuleBag extends ContainerAware
      */
     public function create($route, $class_name)
     {
-        return $this->addDefinition(
+        return $this->add(
             ModuleDefinition::create($route)->setClassName($class_name)
         );
     }
 
-    /**
-     * @return ModuleDefinition[]
-     */
-    public function getAll()
+    protected function getContainerAwareElementClass()
     {
-        return $this->module_definition_list;
+        return ModuleDefinition::class;
     }
 }
