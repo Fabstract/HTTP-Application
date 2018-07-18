@@ -2,7 +2,7 @@
 
 namespace Fabstract\Component\Http\Exception;
 
-abstract class StatusCodeException extends Exception
+class StatusCodeException extends Exception
 {
     /** @var mixed */
     protected $error_details = null;
