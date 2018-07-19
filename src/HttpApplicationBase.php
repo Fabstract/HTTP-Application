@@ -7,6 +7,7 @@ use Fabstract\Component\Http\Constant\Services;
 use Fabstract\Component\Http\Definition\ServiceDefinition\RequestDefinition;
 use Fabstract\Component\Http\ExceptionHandler\GeneralExceptionHandler;
 use Fabstract\Component\Http\ExceptionHandler\LoggingGeneralExceptionHandler;
+use Fabstract\Component\Http\Middleware\AccessControlMiddleware;
 
 abstract class HttpApplicationBase extends ApplicationBase
 {
@@ -36,6 +37,10 @@ abstract class HttpApplicationBase extends ApplicationBase
                 $this->addExceptionHandler(\Exception::class, LoggingGeneralExceptionHandler::class);
             } else {
                 $this->addExceptionHandler(\Exception::class, GeneralExceptionHandler::class);
+            }
+
+            if ($app_config->getAccessControlSettings() !== null) {
+                $this->addMiddleware(AccessControlMiddleware::class);
             }
         }
     }
