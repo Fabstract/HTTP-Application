@@ -56,6 +56,11 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         if ($app_config !== null) {
             Assert::isType($app_config, ApplicationConfig::class, 'app_config');
             $this->application_config = $app_config;
+
+            $this->getContainer()->add(
+                (new ServiceDefinition())
+                    ->setInstance($app_config)
+                    ->setName(Services::APPLICATION_CONFIG));
         }
 
         $this->onConstruct($app_config);
