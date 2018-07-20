@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6bb70d355fb4175ff43825247b3e29e2",
+    "content-hash": "b614a0ae22c2532a250f695c6c6800fe",
     "packages": [
         {
             "name": "fabstract/assert",
@@ -495,30 +495,30 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.4.6-BETA5",
+            "version": "v4.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Fabstract/http-foundation.git",
-                "reference": "0334fd3557c6031bb96ce540740ad9c089438f15"
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "4f9c7cf962e635b0b26b14500ac046e07dbef7f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/http-foundation/zipball/0334fd3557c6031bb96ce540740ad9c089438f15",
-                "reference": "0334fd3557c6031bb96ce540740ad9c089438f15",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/4f9c7cf962e635b0b26b14500ac046e07dbef7f3",
+                "reference": "4f9c7cf962e635b0b26b14500ac046e07dbef7f3",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/polyfill-mbstring": "~1.1",
-                "symfony/polyfill-php70": "~1.6"
+                "php": "^7.1.3",
+                "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
-                "symfony/expression-language": "~2.8|~3.0|~4.0"
+                "predis/predis": "~1.0",
+                "symfony/expression-language": "~3.4|~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.1-dev"
                 }
             },
             "autoload": {
@@ -529,6 +529,7 @@
                     "/Tests/"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -544,10 +545,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/Fabstract/http-foundation/tree/v3.4.6-BETA5"
-            },
-            "time": "2018-03-23T08:43:25+00:00"
+            "time": "2018-06-19T21:38:16+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -671,9 +669,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "symfony/http-foundation": 10
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

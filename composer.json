@@ -31,13 +31,7 @@
     "fabstract/lazy": "^0.2.0",
     "fabstract/datetime-handler": "^0.1.0",
     "fabstract/linq": "^0.1.0",
-    "symfony/http-foundation": "3.4.6-BETA5",
-    "psr/log": "^1.0"
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "git@github.com:Fabstract/http-foundation.git"
-    }
-  ]
+    "psr/log": "^1.0",
+    "symfony/http-foundation": "^4.1"
+  }
 }
