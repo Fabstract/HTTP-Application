@@ -59,6 +59,7 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
 
             $this->getContainer()->add(
                 (new ServiceDefinition())
+                    ->setShared(true)
                     ->setInstance($app_config)
                     ->setName(Services::APPLICATION_CONFIG));
         }
