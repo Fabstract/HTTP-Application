@@ -2,6 +2,7 @@
 
 namespace Fabstract\Component\Http;
 
+use Fabstract\Component\DependencyInjection\ContainerAware;
 use Fabstract\Component\DependencyInjection\ServiceDefinition;
 use Fabstract\Component\DependencyInjection\ServiceProviderInterface;
 use Fabstract\Component\Http\Bag\EndpointBag;
@@ -206,6 +207,10 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         if (is_string($controller_provider)) {
             $controller_provider = new $controller_provider();
         }
+        if ($controller_provider instanceof ContainerAware) {
+            $controller_provider->setContainer($this->getContainer());
+        }
+
         $controller_bag = new ControllerBag();
         $controller_bag->setContainer($this->getContainer());
         $controller_provider->configureControllerBag($controller_bag);
