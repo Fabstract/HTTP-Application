@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b614a0ae22c2532a250f695c6c6800fe",
+    "content-hash": "4f64eab605ad283bb34a23d659f1d42c",
     "packages": [
         {
             "name": "fabstract/assert",
@@ -53,16 +53,16 @@
         },
         {
             "name": "fabstract/datetime-handler",
-            "version": "v0.1.1",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/DateTimeHandler.git",
-                "reference": "bca9610bae1090fb1f72704e3b5f1f7cbad5316f"
+                "reference": "18564bae28c78dbf7edf4765e6a07ab8e4ab63e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/DateTimeHandler/zipball/bca9610bae1090fb1f72704e3b5f1f7cbad5316f",
-                "reference": "bca9610bae1090fb1f72704e3b5f1f7cbad5316f",
+                "url": "https://api.github.com/repos/Fabstract/DateTimeHandler/zipball/18564bae28c78dbf7edf4765e6a07ab8e4ab63e9",
+                "reference": "18564bae28c78dbf7edf4765e6a07ab8e4ab63e9",
                 "shasum": ""
             },
             "require": {
@@ -92,20 +92,20 @@
                 "php",
                 "time"
             ],
-            "time": "2018-04-27T13:32:05+00:00"
+            "time": "2018-08-08T13:22:33+00:00"
         },
         {
             "name": "fabstract/di",
-            "version": "v0.5.0",
+            "version": "v0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Dependency-Injection.git",
-                "reference": "c6c09faad9bf8e035428a2e35544c0a561f8e9f5"
+                "reference": "5af94e65615682003e091d1f89765928ab6fb8de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Dependency-Injection/zipball/c6c09faad9bf8e035428a2e35544c0a561f8e9f5",
-                "reference": "c6c09faad9bf8e035428a2e35544c0a561f8e9f5",
+                "url": "https://api.github.com/repos/Fabstract/Dependency-Injection/zipball/5af94e65615682003e091d1f89765928ab6fb8de",
+                "reference": "5af94e65615682003e091d1f89765928ab6fb8de",
                 "shasum": ""
             },
             "require": {
@@ -138,7 +138,7 @@
                 "injection",
                 "php"
             ],
-            "time": "2018-07-18T14:19:27+00:00"
+            "time": "2018-08-31T08:44:35+00:00"
         },
         {
             "name": "fabstract/event",
@@ -306,16 +306,16 @@
         },
         {
             "name": "fabstract/serializer",
-            "version": "v0.2.1",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Serializer.git",
-                "reference": "d775467d81b902c32639ed266d452fed5d9c7e9a"
+                "reference": "8d7ea7362b1235cd8bd622be62e5c4d41ad8f9ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Serializer/zipball/d775467d81b902c32639ed266d452fed5d9c7e9a",
-                "reference": "d775467d81b902c32639ed266d452fed5d9c7e9a",
+                "url": "https://api.github.com/repos/Fabstract/Serializer/zipball/8d7ea7362b1235cd8bd622be62e5c4d41ad8f9ed",
+                "reference": "8d7ea7362b1235cd8bd622be62e5c4d41ad8f9ed",
                 "shasum": ""
             },
             "require": {
@@ -347,7 +347,7 @@
                 "php",
                 "serialize"
             ],
-            "time": "2018-05-28T13:35:18+00:00"
+            "time": "2018-07-16T08:25:43+00:00"
         },
         {
             "name": "paragonie/random_compat",

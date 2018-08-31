@@ -30,8 +30,9 @@ abstract class HttpApplicationBase extends ApplicationBase
         if ($app_config !== null) {
             if ($app_config->isExceptionLoggerEnabled()) {
                 $this->getContainer()->add(
-                    (new ServiceDefinition(true))
+                    (new ServiceDefinition())
                         ->setName(Services::EXCEPTION_LOGGER)
+                        ->setShared(true)
                         ->setClassName(SimpleExceptionLoggerService::class));
 
                 $this->addExceptionHandler(\Exception::class, LoggingGeneralExceptionHandler::class);
