@@ -201,6 +201,28 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
         $this->setMatchedModule($module);
         $request_uri = $module_match_result->getRestOfUri();
 
+        #region add module services to application container
+
+        $module_service_provider = $module->getServiceProvider();
+        if ($module_service_provider !== null) {
+            Assert::isType(
+                $module_service_provider,
+                ServiceProviderInterface::class,
+                'service provider'
+            );
+
+            if (is_string($module_service_provider)) {
+                /** @var ServiceProviderInterface $module_service_provider */
+                $module_service_provider = new $module_service_provider();
+            }
+
+            /** @var \Fabstract\Component\DependencyInjection\Container $container */
+            $container = $this->getContainer();
+            $container->importFromServiceProvider($module_service_provider);
+        }
+
+        #endregion
+
         // Find matching controller
         $controller_provider = $module->getControllerProvider();
         Assert::isType($controller_provider, ControllerProviderInterface::class, 'controller provider');
@@ -248,28 +270,6 @@ abstract class ApplicationBase extends Injectable implements MiddlewareAwareInte
             } else {
                 throw new MethodNotAllowedException();
             }
-        }
-
-        #endregion
-
-        #region add module services to application container
-
-        $module_service_provider = $module->getServiceProvider();
-        if ($module_service_provider !== null) {
-            Assert::isType(
-                $module_service_provider,
-                ServiceProviderInterface::class,
-                'service provider'
-            );
-
-            if (is_string($module_service_provider)) {
-                /** @var ServiceProviderInterface $module_service_provider */
-                $module_service_provider = new $module_service_provider();
-            }
-
-            /** @var \Fabstract\Component\DependencyInjection\Container $container */
-            $container = $this->getContainer();
-            $container->importFromServiceProvider($module_service_provider);
         }
 
         #endregion
