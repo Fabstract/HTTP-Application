@@ -29,7 +29,7 @@
     "fabstract/router": "^0.3.0",
     "fabstract/di": "^0.6.0",
     "fabstract/lazy": "^0.2.0",
-    "fabstract/datetime-handler": "^0.2.0",
+    "fabstract/datetime-handler": "^0.1.2",
     "fabstract/linq": "^0.1.0",
     "psr/log": "^1.0",
     "symfony/http-foundation": "^4.1"
